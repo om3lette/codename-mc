@@ -1,0 +1,27 @@
+name: gobuild
+
+on:
+  pull_request:
+    branches:
+      - "main"
+    paths:
+      - "go/**"
+
+jobs:
+  build:
+    name: Build Go apps
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go enviroment
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.22.0"
+
+      - name: Build access-manager app
+        run: |
+          cd go/access-manager/cmd/access-manager-api
+          go build
