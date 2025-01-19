@@ -1,0 +1,23 @@
+name: golinters
+
+on:
+  pull_request:
+    branches:
+      - "main"
+    paths:
+      - "go/**"
+
+jobs:
+  linters:
+    name: Run Go linters
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run golangci-lint
+        uses: golangci/golangci-lint-action@v6
+        with:
+          version: "v1.60"
+          working-directory: "go"
