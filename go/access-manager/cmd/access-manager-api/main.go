@@ -1,7 +1,28 @@
 package main
 
-import "fmt"
+import (
+	"log"
+	"net"
 
-func main(){
-	fmt.Println("Hello, world!")
+	ampb "github.com/om3lette/codename-mc/go/gen/proto/codenamemc.accesssmanager"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
+)
+
+func main() {
+	dummyServer := grpc.NewServer()
+
+	dummyServer.RegisterService(&ampb.UserService_ServiceDesc, ampb.UnimplementedTokenServiceServer{})
+	dummyServer.RegisterService(&ampb.TokenService_ServiceDesc, ampb.UnimplementedUserServiceServer{})
+
+	reflection.Register(dummyServer)
+
+	lis, err := net.Listen("tcp", ":8080")
+	if err != nil {
+		panic("failed to run server")
+	}
+
+	log.Println("listening on :8080")
+
+	dummyServer.Serve(lis)
 }

@@ -1,0 +1,31 @@
+syntax = "proto3";
+package codenamemc.accessmanager.v1;
+
+option go_package = "codenamemc.accesssmanager;accesssmanager";
+option java_package = "codenamemc.accessmanager";
+option java_outer_classname = "AccessManagerProto";
+
+import "google/protobuf/empty.proto";
+
+service TokenService {
+  rpc Create(CreateTokenRequest) returns (CreateTokenResponse);
+  rpc Delete(DeleteTokenRequest) returns (google.protobuf.Empty);
+  rpc Authenticate(AuthenticateRequest) returns (google.protobuf.Empty);
+}
+
+message CreateTokenRequest {
+  string tg_id = 1;
+}
+
+message CreateTokenResponse {
+  string token = 1;
+}
+
+message DeleteTokenRequest {
+  string tg_id = 1;
+}
+
+message AuthenticateRequest {
+  string nickname = 1;
+  string token = 2;
+}

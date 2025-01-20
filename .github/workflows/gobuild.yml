@@ -1,5 +1,8 @@
 name: gobuild
 
+env:
+  PROTO_GEN_PATH: --go_out=go/gen/proto
+
 on:
   pull_request:
     branches:
@@ -16,10 +19,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Go enviroment
+      - name: Setup Go
         uses: actions/setup-go@v5
         with:
           go-version: "1.22.0"
+
+      - name: Setup protoc
+        uses: arduino/setup-protoc@v3
+        with:
+          version: "29.x"
+
+      - name: Generate go gRPC files
+        run: |
+          cd api/access-manager/v1/ 
+          protoc *.proto --go_out={{ env.PROTO_GEN_PATH }} --go-grpc_out={{ env.PROTO_GEN_PATH }}        
 
       - name: Build access-manager app
         run: |
