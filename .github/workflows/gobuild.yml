@@ -32,7 +32,7 @@ jobs:
       - name: Generate go gRPC files
         run: |
           cd api/access-manager/v1/ 
-          protoc *.proto --go_out={{ env.PROTO_GEN_PATH }} --go-grpc_out={{ env.PROTO_GEN_PATH }}        
+          protoc *.proto --go_out=$env.PROTO_GEN_PATH --go-grpc_out=$env.PROTO_GEN_PATH        
 
       - name: Build access-manager app
         run: |
