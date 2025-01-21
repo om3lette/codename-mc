@@ -1,5 +1,8 @@
 name: golinters
 
+env:
+  GO_PROTO_OUT: go/gen/proto
+
 on:
   pull_request:
     branches:
