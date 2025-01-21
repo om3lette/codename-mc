@@ -45,7 +45,7 @@ jobs:
       - name: Generate go gRPC files
         run: |
           cd api/access-manager/v1/ 
-          protoc api/access-manager/v1*.proto --go_out=$GO_PROTO_OUT --go-grpc_out=$GO_PROTO_OUT        
+          protoc api/access-manager/v1/*.proto --go_out=$GO_PROTO_OUT --go-grpc_out=$GO_PROTO_OUT        
 
       - name: Build access-manager app
         run: |
