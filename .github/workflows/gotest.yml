@@ -19,7 +19,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Go enviroment
+      - name: Setup Go
         uses: actions/setup-go@v5
         with:
           go-version: "1.22.0"
@@ -37,12 +37,17 @@ jobs:
       - name: Download protoc-gen-go
         run: |
           go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+          go install google.golang.org/protobuf/cmd/protoc-gen-go-grpc@latest
+
+      - name: Add Go bin to PATH
+        run: |
+          echo "${{ runner.tool_cache }}/go/$(go version | awk '{ print $3 }')/*/bin" >> $GITHUB_PATH
 
       - name: Generate go gRPC files
         run: |
           cd api/access-manager/v1/ 
-          protoc *.proto --go_out=$GO_PROTO_OUT --go-grpc_out=$GO_PROTO_OUT        
-  
+          protoc api/access-manager/v1*.proto --go_out=$GO_PROTO_OUT --go-grpc_out=$GO_PROTO_OUT        
+
       - name: Run Go tests
         run: |
           cd go

@@ -1,7 +1,7 @@
 name: gobuild
 
 env:
-  GO_PROTO_OUT: gen/proto
+  GO_PROTO_OUT: go/gen/proto
 
 on:
   pull_request:
@@ -37,11 +37,16 @@ jobs:
       - name: Download protoc-gen-go
         run: |
           go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+          go install google.golang.org/protobuf/cmd/protoc-gen-go-grpc@latest
+
+      - name: Add Go bin to PATH
+        run: |
+          echo "${{ runner.tool_cache }}/go/$(go version | awk '{ print $3 }')/*/bin" >> $GITHUB_PATH
 
       - name: Generate go gRPC files
         run: |
           cd api/access-manager/v1/ 
-          protoc *.proto --go_out=$GO_PROTO_OUT --go-grpc_out=$GO_PROTO_OUT        
+          protoc api/access-manager/v1*.proto --go_out=$GO_PROTO_OUT --go-grpc_out=$GO_PROTO_OUT        
 
       - name: Build access-manager app
         run: |
