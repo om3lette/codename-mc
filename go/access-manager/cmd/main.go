@@ -19,13 +19,13 @@ func main() {
 
 	lis, err := net.Listen("tcp", ":8080")
 	if err != nil {
-		log.Fatalf("failed to run grpc server: %w", err)
+		log.Fatalf("failed to run grpc server: %s\n", err.Error())
 	}
 
-	log.Println("server is running on :8080")
+	log.Printf("server is running on :8080\n")
 
 	err = dummyServer.Serve(lis)
 	if err != nil {
-		log.Println("server finished with err: %w", err)
+		log.Printf("server finished with err: %s\n", err.Error())
 	}
 }
