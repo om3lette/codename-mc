@@ -1,0 +1,52 @@
+syntax = "proto3";
+package codenamemc.accessmanager.v1;
+
+option go_package = "codenamemc.accesssmanager;accesssmanager";
+option java_package = "codenamemc.accessmanager";
+option java_outer_classname = "AccessManagerProto";
+
+import "google/protobuf/empty.proto";
+
+service UserService {
+  rpc Get(GetUserRequest) returns (GetUserResponse);
+  rpc List(ListUserRequest) returns (ListUserResponse);
+  rpc Create(CreateUserRequest) returns (google.protobuf.Empty);
+  rpc Update(UpdateUserRequest) returns (google.protobuf.Empty);
+  rpc Delete(DeleteUserRequest) returns (google.protobuf.Empty);
+}
+
+message GetUserRequest {
+  string tg_id = 1;
+}
+
+message GetUserResponse {
+  string tg_id = 1;
+  string nickname = 2;
+}
+
+message ListUserRequest {
+  uint64 limit = 1;
+  uint64 offset = 2;
+}
+
+message ListUserResponse {
+  message User {
+    string tg_id = 1;
+    string nickname = 2;
+  };
+
+  repeated User users = 1;
+}
+
+message CreateUserRequest {
+  string tg_id = 1;
+}
+
+message UpdateUserRequest {
+  string tg_id = 1;
+  string nickname = 2;
+}
+
+message DeleteUserRequest {
+  string tg_id = 1;
+}
