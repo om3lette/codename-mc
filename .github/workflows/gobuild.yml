@@ -1,7 +1,7 @@
 name: gobuild
 
 env:
-  PROTO_GEN_PATH: --go_out=go/gen/proto
+  GO_PROTO_OUT: gen/proto
 
 on:
   pull_request:
@@ -29,12 +29,21 @@ jobs:
         with:
           version: "29.x"
 
+      - name: Download go dependencies
+        run: |
+          cd go
+          go mod download
+
+      - name: Download protoc-gen-go
+        run: |
+          go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+
       - name: Generate go gRPC files
         run: |
           cd api/access-manager/v1/ 
-          protoc *.proto --go_out=$env.PROTO_GEN_PATH --go-grpc_out=$env.PROTO_GEN_PATH        
+          protoc *.proto --go_out=$GO_PROTO_OUT --go-grpc_out=$GO_PROTO_OUT        
 
       - name: Build access-manager app
         run: |
-          cd go/access-manager/cmd/access-manager-api
+          cd go/access-manager/cmd
           go build

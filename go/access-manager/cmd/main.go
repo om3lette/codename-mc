@@ -12,8 +12,8 @@ import (
 func main() {
 	dummyServer := grpc.NewServer()
 
-	dummyServer.RegisterService(&ampb.UserService_ServiceDesc, ampb.UnimplementedTokenServiceServer{})
-	dummyServer.RegisterService(&ampb.TokenService_ServiceDesc, ampb.UnimplementedUserServiceServer{})
+	dummyServer.RegisterService(&ampb.UserService_ServiceDesc, ampb.UnimplementedUserServiceServer{})
+	dummyServer.RegisterService(&ampb.TokenService_ServiceDesc, ampb.UnimplementedTokenServiceServer{})
 
 	reflection.Register(dummyServer)
 
