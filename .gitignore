@@ -1,1 +1,17 @@
+# gRPC
 *.pb.go
+*pb2.py
+*pb2_grpc.py
+
+# Python
+.idea/
+__pycache__
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/

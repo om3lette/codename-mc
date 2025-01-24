@@ -1,7 +1,7 @@
 import logging
 
 import aiomcrcon
-from src.constants import SERVER_ADDRESS, RCON_PORT
+from python.bots.telegram.src.constants import SERVER_ADDRESS, RCON_PORT
 from unidecode import unidecode
 
 

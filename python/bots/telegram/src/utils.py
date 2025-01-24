@@ -3,12 +3,12 @@ import logging
 from typing import Callable
 from sys import exit
 
-from src.constants import ExitStatus, ADMINS, ADMIN_IDS, SECONDS_BETWEEN_RETRIES, SERVER_NAME
-from src.response_messages import PING_ERROR_MESSAGE, PING_HANGUP_MESSAGE, PING_HANGUP_ADMIN_MESSAGE, NO_ADMINS_FOUND_MESSAGE
+from python.bots.telegram.src.constants import ExitStatus, ADMINS, ADMIN_IDS, SECONDS_BETWEEN_RETRIES, SERVER_NAME
+from python.bots.telegram.src.response_messages import PING_ERROR_MESSAGE, PING_HANGUP_MESSAGE, PING_HANGUP_ADMIN_MESSAGE, NO_ADMINS_FOUND_MESSAGE
 
 from aiogram.types import Message
 from aiogram.exceptions import TelegramForbiddenError
-from src.bot import bot
+from python.bots.telegram.src.bot import bot
 
 
 def check_for_exit_condition(

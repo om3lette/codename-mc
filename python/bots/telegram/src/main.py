@@ -2,10 +2,10 @@ import sys
 import asyncio
 import logging
 
-from src.buttons.router import buttons_router
-from src.constants import DEV_MODE
-from src.server.router import server_router
-from src.bot import bot
+from python.bots.telegram.src.buttons.router import buttons_router
+from python.bots.telegram.src.constants import DEV_MODE
+from python.bots.telegram.src.server.router import server_router
+from python.bots.telegram.src.bot import bot
 
 from aiogram import Dispatcher
 

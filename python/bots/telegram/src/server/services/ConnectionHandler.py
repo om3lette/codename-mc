@@ -7,11 +7,11 @@ from typing import Callable, Optional
 
 from mcstatus.status_response import JavaStatusResponse
 
-from src.constants import MAX_RETRIES, SECONDS_BETWEEN_RETRIES, ADMIN_IDS, DEV_MODE
+from python.bots.telegram.src.constants import MAX_RETRIES, SECONDS_BETWEEN_RETRIES, ADMIN_IDS, DEV_MODE
 from aiogram.types import Message
 
-from src.server.schemas.RequestCache import RequestCacheSchema
-from src.utils import default_ping_error_callback
+from python.bots.telegram.src.server.schemas.RequestCache import RequestCacheSchema
+from python.bots.telegram.src.utils import default_ping_error_callback
 
 
 class ConnectionHandler:

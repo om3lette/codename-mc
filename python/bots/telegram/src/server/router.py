@@ -4,10 +4,10 @@ from aiogram.types import Message
 from aiogram.enums import ParseMode
 from mcstatus.status_response import JavaStatusPlayers
 
-from src.buttons.builders import players_markup_builder
-from src.constants import ADMIN_IDS
-from src.handlers import connection_handler, rcon_handler
-from src.response_messages import *
+from python.bots.telegram.src.buttons.builders import players_markup_builder
+from python.bots.telegram.src.constants import ADMIN_IDS
+from python.bots.telegram.src.handlers import connection_handler, rcon_handler
+from python.bots.telegram.src.response_messages import *
 
 server_router: Router = Router()
 

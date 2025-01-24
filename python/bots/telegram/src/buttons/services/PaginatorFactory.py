@@ -3,11 +3,11 @@ import logging
 from logging import Logger
 from enum import IntEnum
 
-import src.buttons.schemas.button_callbacks as callbacks
+import python.bots.telegram.src.buttons.schemas.button_callbacks as callbacks
 
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
-from src.buttons.schemas.PaginatorConfig import PaginatorConfig
+from python.bots.telegram.src.buttons.schemas.PaginatorConfig import PaginatorConfig
 
 logger: Logger = logging.getLogger()
 

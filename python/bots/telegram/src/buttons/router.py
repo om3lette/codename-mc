@@ -2,11 +2,11 @@ from aiogram import Router
 from aiogram.types import CallbackQuery
 from aiogram import F
 
-from src.buttons.builders import players_markup_builder
-from src.buttons.schemas.button_callbacks import PaginationNav
-from src.buttons.services.PaginatorFactory import PaginatorExitStatus
-from src.handlers import connection_handler
-from src.response_messages import PLAYERS_ONLINE_MESSAGE, NO_PLAYERS_ONLINE_MESSAGE
+from python.bots.telegram.src.buttons.builders import players_markup_builder
+from python.bots.telegram.src.buttons.schemas.button_callbacks import PaginationNav
+from python.bots.telegram.src.buttons.services.PaginatorFactory import PaginatorExitStatus
+from python.bots.telegram.src.handlers import connection_handler
+from python.bots.telegram.src.response_messages import PLAYERS_ONLINE_MESSAGE, NO_PLAYERS_ONLINE_MESSAGE
 
 buttons_router: Router = Router()
 
