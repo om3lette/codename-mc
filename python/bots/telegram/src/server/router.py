@@ -5,7 +5,7 @@ from aiogram.enums import ParseMode
 from mcstatus.status_response import JavaStatusPlayers
 
 from python.bots.telegram.src.buttons.builders import players_markup_builder
-from python.bots.telegram.src.constants import ADMIN_IDS
+from python.bots.telegram.src.constants import config
 from python.bots.telegram.src.handlers import connection_handler, rcon_handler
 from python.bots.telegram.src.response_messages import *
 
@@ -48,7 +48,7 @@ async def execute_command(message: Message):
     if not rcon_handler.is_configured:
         await message.reply(FEATURE_WAS_NOT_SETUP_MESSAGE)
         return
-    if message.from_user.id not in ADMIN_IDS:
+    if message.from_user.id not in config.admins.ids:
         await message.reply(PERMISSION_LEVEL_TOO_LOW_MESSAGE)
         return
     data: list[str] = message.text.split(' ', 1)
