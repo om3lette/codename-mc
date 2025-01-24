@@ -1,10 +1,11 @@
 # gRPC
 *.pb.go
 *pb2.py
+*pb2.pyi
 *pb2_grpc.py
 
 # Python
-.idea/
+.idea
 __pycache__
 
 # Environments
