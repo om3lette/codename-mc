@@ -16,8 +16,8 @@ class ServerConfigSchema(BaseModel):
     port: int = Field(default=25565)
 
 class ConnectionConfigSchema(BaseModel):
-    max_retries_before_hangup: int = Field(default=1)
-    seconds_between_retries: int = Field(default=1)
+    max_retries_before_hangup: int = Field(default=3)
+    seconds_between_retries: int = Field(default=20)
 
 class AdminsConfigSchema(BaseModel):
     usernames: list[str] = []
