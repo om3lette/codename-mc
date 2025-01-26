@@ -23,15 +23,14 @@ jobs:
         uses: astral-sh/ruff-action@v3
         with:
           src: "./python"
-          args: "check"
-          config: "python/ruff.toml"
+          args: "check --config python/ruff.toml"
           version: "0.9.3"
 
       - name: Run formatter
         uses: astral-sh/ruff-action@v3
         with:
           src: "./python"
-          args: "format"
+          args: "format --config python/ruff.toml"
           config: "python/ruff.toml"
           version: "0.9.3"
 
