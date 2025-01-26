@@ -31,7 +31,6 @@ jobs:
         with:
           src: "./python"
           args: "format --config python/ruff.toml"
-          config: "python/ruff.toml"
           version: "0.9.3"
 
       - name: Commit formatting changes
