@@ -23,6 +23,6 @@ pip install --upgrade -r python/gen/grpc-requirements.txt \
 
 1. `BOT_FOLDER_NAME` - название папки в `/python/bots/`, которую необходимо скопировать в контейнер. Возможные варианты: `telegram`
 
-```commandline
+```bash
 docker build -t server-guard-tg --build-arg "BOT_FOLDER_NAME=telegram" ./python/
 ```
