@@ -1,0 +1,39 @@
+name: python_lint
+
+on:
+  pull_request:
+    branches:
+      - "main"
+    paths:
+      - "python/**"
+
+jobs:
+  lint-and-format:
+    name: Lint and format the app
+    runs-on: ubuntu-22.04
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run linter
+        uses: astral-sh/ruff-action@v3
+        with:
+          src: "./python"
+          args: "check --config python/ruff.toml"
+          version: "0.9.3"
+
+      - name: Run formatter
+        uses: astral-sh/ruff-action@v3
+        with:
+          src: "./python"
+          args: "format --config python/ruff.toml"
+          version: "0.9.3"
+
+      - name: Commit formatting changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Fixed formatting [ruff]'
