@@ -24,7 +24,7 @@
 ## Как запустить
 
 1. Установите зависимости 
-```commandline
+```bash
 pip install -r requirements.txt
 ```
 2. Запустите локально
@@ -34,19 +34,19 @@ pip install -r requirements.txt
 Следующие команды необходимо выполнять их корня проекта `/`
 
 #### Windows
-```commandline
+```bash
 python -m python.bots.telegram.src.main
 ```
 
 #### Linux
-```commandline
+```bash
 python3 -m python.bots.telegram.src.main
 ```
 
 ### Docker
 Сборку образа можно осуществить с помощью `/python/Dockerfile`\
 Запуск контейнера
-```commandline
+```bash
 sudo docker run -d --rm --name server-guard -v <YOUR_PATH_TO_CONFIG>/config.yaml:/app/config.yaml server-guard
 ```
 При использовании `compose` рекомендуется объединить сервер и `ServerGuard` в одном `compose` файле при условии, что сервер также запущен с использованием `Docker`

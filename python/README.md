@@ -1,10 +1,20 @@
+## Использование линтера / форматтера
+
+### Установка зависимостей
+```bash
+pip install --upgrade -r python/devb-requirements
+```
+```bash
+ruff format python/ --config python/ruff.toml && ruff check python/ --config python/ruff.toml
+```
+
 ## Сборка Docker образа
 
 Все команды, указанные далее, предполагают исполнение из корня проекта
 
 ### gRPC
 До начала сборки необходимо сгенерировать код gRPC для Python
-```commandline
+```bash
 pip install --upgrade -r python/gen/grpc-requirements.txt \
 && bash python/gen/generate_grpc.sh
 ```

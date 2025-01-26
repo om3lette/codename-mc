@@ -4,4 +4,6 @@ from aiogram.enums import ParseMode
 
 from python.bots.telegram.src.constants import config
 
-bot: Bot = Bot(token=config.bot_token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+bot: Bot = Bot(
+	token=config.bot_token, default=DefaultBotProperties(parse_mode=ParseMode.HTML)
+)
